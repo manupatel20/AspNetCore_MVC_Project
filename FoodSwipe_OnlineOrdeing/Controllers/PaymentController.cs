@@ -62,7 +62,7 @@ namespace FoodOrderingSystem.Controllers
                     var sb = new StringBuilder();
                     int billAmount = 0;
 
-                    sb.Append("<table class=\"table\">   <thead style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\> <tr><th>Item  </th><th>Quantity</th><th>Total Prices</th><th></th></tr></thead><tbody style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\>");
+                    sb.Append("<table class=\"table\">   <thead style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\> <tr><th>Item  </th><th>Quantity</th><th>Total Price</th><th></th></tr></thead><tbody style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\>");
                     if (orderlist.Count > 0)
                     {
                         foreach (OrderList order in orderlist)
@@ -78,8 +78,8 @@ namespace FoodOrderingSystem.Controllers
                         await _context.SaveChangesAsync();
                     }
                     string cardNumber=paymentonline.CardNumber.ToString();
-                    sb.AppendLine("<h2 style=\"font-size:24px\"> Bill Amount: " + billAmount + " </h2>");
-                    sb.AppendLine("<h2>Payment is done through card ends with: " + cardNumber.Substring(12) + "</h2>");
+                    sb.AppendLine("<h3 style=\"font-size:20px\"> Bill Amount: " + billAmount + " </h3>");
+                    sb.AppendLine("<h4>Payment is done through card ends with: " + cardNumber.Substring(12) + "</h4>");
                     //Add your email address to the recipients
                     msg.To.Add("kanushisamrat@gmail.com");
                     //Configure the address we are sending the mail from
@@ -119,7 +119,7 @@ namespace FoodOrderingSystem.Controllers
                 var sb = new StringBuilder();
                 int billAmount = 0;
 
-                sb.Append("<table class=\"table\">   <thead style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\> <tr><th>Item  </th><th>Quantity</th><th>Total Prices</th><th></th></tr></thead><tbody style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\>");
+                sb.Append("<table class=\"table\">   <thead style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\> <tr><th>Item  </th><th>Quantity</th><th>Total Price</th><th></th></tr></thead><tbody style=\\\"border: 0; border-bottom: 1px dashed #ccc;\\>");
                 if (orderlist.Count > 0)
                 {
                     foreach (OrderList order in orderlist)
@@ -134,13 +134,13 @@ namespace FoodOrderingSystem.Controllers
                     }
                     await _context.SaveChangesAsync();
                 }
-                sb.AppendLine("<h1 style=\"font-size:24px\"> Bill Amount: " + billAmount+" </h1>");
+                sb.AppendLine("<h3 style=\"font-size:20px\"> Bill Amount: " + billAmount+" </h3>");
                 //Add your email address to the recipients
                 msg.To.Add("kanushisamrat@gmail.com");
                 //Configure the address we are sending the mail from
                 MailAddress address = new MailAddress("manupatel20052002@gmail.com");
                 msg.From = address;
-                msg.Subject = "Sample";
+                msg.Subject = "Order Successfully Placed!!";
                 msg.Body = sb.ToString();
                 msg.IsBodyHtml = true;
 
