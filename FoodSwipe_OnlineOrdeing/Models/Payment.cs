@@ -10,8 +10,10 @@ namespace FoodOrderingSystem.Models
     {
         [Required]
         public string Name { get; set; }
+
         [Required]
         public string Address { get; set; }
+
         [Required]
         [Range(1000000000,9999999999,ErrorMessage ="please enter valid mobile number.")]
         public long Mob { get; set; }

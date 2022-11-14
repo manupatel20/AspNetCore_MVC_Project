@@ -81,7 +81,7 @@ namespace FoodOrderingSystem.Controllers
                     sb.AppendLine("<h3 style=\"font-size:20px\"> Bill Amount: " + billAmount + " </h3>");
                     sb.AppendLine("<h4>Payment is done through card ends with: " + cardNumber.Substring(12) + "</h4>");
                     //Add your email address to the recipients
-                    msg.To.Add("kanushisamrat@gmail.com");
+                    msg.To.Add(User.Identity.Name.ToString());
                     //Configure the address we are sending the mail from
                     MailAddress address = new MailAddress("manupatel20052002@gmail.com");
                     msg.From = address;
@@ -136,7 +136,7 @@ namespace FoodOrderingSystem.Controllers
                 }
                 sb.AppendLine("<h3 style=\"font-size:20px\"> Bill Amount: " + billAmount+" </h3>");
                 //Add your email address to the recipients
-                msg.To.Add("kanushisamrat@gmail.com");
+                msg.To.Add(User.Identity.Name.ToString());
                 //Configure the address we are sending the mail from
                 MailAddress address = new MailAddress("manupatel20052002@gmail.com");
                 msg.From = address;
